@@ -43,7 +43,7 @@ def getFirstOverview(pokemonName):
     first_overview = smogon_html.split("<\\/p>")[0].replace("<\\/a>", "")
     return {"overview": first_overview}
 
-@app.get("/getJSON")
+@app.get("/getJSONGen7")
 def getJSON(pokemonName):
     url = "https://www.smogon.com/dex/sm/pokemon/" + pokemonName.lower()
     urlPage = requests.get(url)
@@ -53,7 +53,17 @@ def getJSON(pokemonName):
     script_insides = script.text
     return json.loads(script_insides.replace("dexSettings = ", "").strip())['injectRpcs'][2][1]
 
-@app.get("/getPokemonData")
+@app.get("/getJSONGen8")
+def getJSON(pokemonName):
+    url = "https://www.smogon.com/dex/ss/pokemon/" + pokemonName.lower()
+    urlPage = requests.get(url)
+    soup = bs(urlPage.content, 'html.parser')
+
+    script = soup.find_all("script")[1]
+    script_insides = script.text
+    return json.loads(script_insides.replace("dexSettings = ", "").strip())['injectRpcs'][2][1]
+
+@app.get("/getGen7Data")
 def getPokemonData():
     url = "https://www.smogon.com/dex/sm/pokemon/charizard"
     urlPage = requests.get(url)
@@ -61,4 +71,4 @@ def getPokemonData():
 
     script = soup.find_all("script")[1]
     script_insides = script.text
-    return json.loads(script_insides.replace("dexSettings = ", "").strip())['injectRpcs'][2][1]
+    return json.loads(script_insides.replace("dexSettings = ", "").strip())['injectRpcs'][1][1]
