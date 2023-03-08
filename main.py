@@ -62,7 +62,7 @@ def root ():
     </style>
     <h1>Smogon API</h1>
     <p>
-    <image src="https://www.dropbox.com/s/59sdrzril0s4mam/smogonBanner.jpg?dl=1" style="width:600px;height:300px;" class="center"></image><br />
+    <image src="https://www.dropbox.com/s/u4ognce7sevfkgx/smogonBanner.png?dl=1" style="width:600px;height:150px;" class="center"></image><br />
     Welcome to the Smogon API Project! This project is aimed at allowing developers 
     to access all of the data on <a href="https://smogon.com">Smogon</a> using API-style endpoints, in order
     to perform analysis or present different views. 
