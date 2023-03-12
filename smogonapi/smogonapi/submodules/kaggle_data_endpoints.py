@@ -1,3 +1,8 @@
+"""
+This submodule contains all of the endpoints that primarily
+return data from static datasets.
+"""
+
 from fastapi import APIRouter
 from .static_data_loader import load_pokemon_stats
 
