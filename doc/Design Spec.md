@@ -40,6 +40,7 @@ The Smogon API system consist of the following components
 ## Interactions
 
 The following diagram depicts the interaction between the listed components
+
 ![](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgU21vZ29uIEFQSQoKVXNlci0-QVBJIFNlcnZlcjogUG9rZW1vbiBpbmZvcm1hdGlvbiByZXF1ZXN0CgAeCi0-AD8HVVJMIEdlbmVyYXRvcjogUgAkBgA9CXdlYnBhZ2UgVVJMCgAeFABuDlJldHVybgAoFQBvDFdlYiBjcmF3bGVyOiBTdWJtaXQgdwAKCgCBJwggd2l0aAB1BQAmCwCBMAlXZWJzaXRlOiBBY2Nlc3MAgg4IAIEqBwCBJQgAHwcAZBAAHw0gYm9keQBWDgCCORggcGFyc2VkIGZyb20AYgkAgkoMVXMAgXsNAIJ6Ego&s=default)
 
 ### Check StrategyDex
@@ -78,4 +79,29 @@ The following diagram depicts the interaction between the listed components
 
 *API:* Scrapes the data from Smogon for the particular Pokémon(s) and generation(s) that the user specified. The resulting CSV file will include the Name of the Pokémon, the generation, their type(s), available Abilities, the competitive tier they are listed in, and their base stats (HP, Attack, Defense, Sp. Atk, Sp. Def, Speed).
 
-## Preliminary plan
+## Preliminary Plan
+
+**Week 6**
+- Determine the goal and scope of the project
+- Create README.md and LICENSE file
+
+**Week 7**
+- Explore the structure and format of the html pages of Smogon
+- Finish user stories and use cases of the API
+
+**Week 8**
+- Confirm Python packages to implement the web crawler and deploy the API
+- Figure out how to deploy the API
+- Prepare for technology review presentation and demo
+
+**Week 9**
+- Refine endpoints for FastAPI
+- Extract Pokémon gen 1-8 and gen 9 dataset from supplemental data sources
+- Add environment and dependency files of the API
+
+**Week 10-11**
+- Implement setup.py file
+- Create unit tests for the API
+- Add documentation of codes and improve code style with pylint
+- Finalize design and functional documentation
+- Prepare for final project presentation
