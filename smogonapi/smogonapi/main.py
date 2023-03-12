@@ -5,7 +5,7 @@ mostly just grabs the endpoints from the appropriate submodules.
 """
 #from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from .sub_modules import smogon_endpoints, http_endpoints, kaggle_data_endpoints
+from .submodules import smogon_endpoints, http_endpoints, kaggle_data_endpoints
 
 
 static_data = {}
