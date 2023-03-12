@@ -21,8 +21,10 @@ def get_pokemon_stats_historical(pokemon: str):
     #each time, since scaling this up is outside the scope of hte class
     # pokemon_stats_data = static_data["pokemon_stats_data"]
     pokemon_stats_data = load_pokemon_stats()
-    pokemon_stats = pokemon_stats_data[pokemon]
-
+    for key in list(pokemon_stats_data.items()):
+        if pokemon.casefold() == key.casefold():
+            pokemon_stats = pokemon_stats_data[key]
+            break
     print(pokemon_stats)
     response = {}
     if pokemon_stats is None:
