@@ -25,7 +25,7 @@ class TestSmogonAPI(unittest.TestCase):
         """
 
         precalculated_hash = "1774cbc7461ff54379ee2c7e9d9056c3"
-        with open('../procfile','rb') as file:
+        with open('../Procfile','rb') as file:
             hashval = hashlib.md5(file.read()).hexdigest()
             self.assertTrue(precalculated_hash == hashval)
 
