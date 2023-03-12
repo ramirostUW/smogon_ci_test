@@ -86,7 +86,7 @@ def get_top_pokemon(stats, gen):
     docstring
     """
     url = "https://www.smogon.com/dex/" + gen + "/pokemon/"
-    url_page = requests.get(url)
+    url_page = requests.get(url, timeout=100000)
     soup = bs(url_page.content, 'html.parser')
     script = soup.find_all("script")[1]
     script_insides = script.text
