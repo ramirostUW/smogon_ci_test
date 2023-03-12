@@ -1,0 +1,6 @@
+name: smogonapi-env
+dependencies:
+  - python>=3.8.15
+  - pip
+  - pip:
+    - -r requirements.txt

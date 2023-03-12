@@ -1,3 +1,8 @@
+"""
+This function contains all of the endpoints that
+return raw html.
+"""
+
 from fastapi import APIRouter
 from fastapi.responses import HTMLResponse
 
@@ -5,6 +10,9 @@ router = APIRouter()
 
 @router.get("/", response_class=HTMLResponse)
 def root ():
+    """
+    This functions returns the splash page for the API.
+    """
     return """
     <style>
         .center {
@@ -66,5 +74,3 @@ def root ():
     </p>
     <p> You can find a list of the different endpoints that we have <a href="/docs">here</a>. 
     """
-
-
