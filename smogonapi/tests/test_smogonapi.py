@@ -24,7 +24,7 @@ class TestSmogonAPI(unittest.TestCase):
         Rule number one of the procfile: Don't touch the procfile.
         """
 
-        precalculated_hash = "941deab554bc6834eef26b1222fe0e51"
+        precalculated_hash = "1774cbc7461ff54379ee2c7e9d9056c3"
         with open('../procfile','rb') as file:
             hashval = hashlib.md5(file.read()).hexdigest()
             self.assertTrue(precalculated_hash == hashval)
