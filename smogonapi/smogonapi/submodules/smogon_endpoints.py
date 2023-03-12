@@ -95,7 +95,7 @@ def get_top_pokemon(stats, gen):
     .strip())['injectRpcs'][1][1]['pokemon'])
     dataframe['average'] = dataframe[stats].mean(axis=1)
     str1 = ' '
-    dataframe['formats'] = dataframe['formats'].apply(lambda x: str1.join(x))
+    dataframe['formats'] = dataframe['formats'].apply(str1.join)
 
     top_pokemon = dataframe.groupby('formats').apply(
         lambda x: x.nlargest(5, 'average')
