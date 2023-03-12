@@ -2,6 +2,7 @@ from fastapi import APIRouter
 import requests
 from bs4 import BeautifulSoup as bs
 import json
+import pandas as pd
 
 router = APIRouter()
 
@@ -58,3 +59,20 @@ def getPokemonData():
     script = soup.find_all("script")[1]
     script_insides = script.text
     return json.loads(script_insides.replace("dexSettings = ", "").strip())['injectRpcs'][1][1]
+
+@router.get("/getTopPokemon")
+def get_top_pokemon(stats, gen):
+    url = "https://www.smogon.com/dex/" + gen + "/pokemon/"
+    urlPage = requests.get(url)
+    soup = bs(urlPage.content, 'html.parser')
+    
+    script = soup.find_all("script")[1]
+    script_insides = script.text
+
+    df = pd.DataFrame(json.loads(script_insides.replace("dexSettings = ", "").strip())['injectRpcs'][1][1]['pokemon'])
+    df['average'] = df[stats].mean(axis=1)
+    str1 = ' '
+    df['formats'] = df['formats'].apply(lambda x: str1.join(x))
+
+    top_pokemon = df.groupby('formats').apply(lambda x: x.nlargest(5, 'average')).set_index('formats')
+    return top_pokemon.filter(items=['name'] + stats + ['types', 'abilities', 'average'])
