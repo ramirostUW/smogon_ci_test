@@ -1,2 +1,6 @@
 **/__pycache__/
 ##hopefully this works
+
+# vs code settings
+.vscode/
+tests/.vscode/
