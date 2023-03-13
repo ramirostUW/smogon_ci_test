@@ -1,4 +1,4 @@
-name: smogonapi-env
+name: smogonapi-tmp-env
 dependencies:
   - python>=3.8.15
   - pip
