@@ -3,6 +3,7 @@ This test suite makes sure the API and its endpoints all
 work and return valid and meaningful responses.
 """
 
+import os
 import unittest
 import hashlib
 from fastapi.testclient import TestClient
@@ -25,7 +26,8 @@ class TestSmogonAPI(unittest.TestCase):
         """
 
         precalculated_hash = "1774cbc7461ff54379ee2c7e9d9056c3"
-        with open('../Procfile','rb') as file:
+        proc_file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Procfile')
+        with open(proc_file_path,'rb') as file:
             hashval = hashlib.md5(file.read()).hexdigest()
             self.assertTrue(precalculated_hash == hashval)
 

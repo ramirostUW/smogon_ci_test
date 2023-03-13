@@ -11,7 +11,7 @@ def load_pokemon_stats():
     :return: dict that contains pokemon name -> stats
     """
     pokemon_df = pd.read_csv(
-        os.path.join(os.path.dirname(__file__), '..', 'data/pokemons_gen1-8.csv'))
+        os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/pokemons_gen1-8.csv'))
     pokemon_df = pokemon_df.fillna('')
     pokemon_stats = pokemon_df.to_dict(orient='records')
 
@@ -28,6 +28,6 @@ def _build_pokemon_to_stats_dict(pokemon_stats):
     result = {}
     for pokemon in pokemon_stats:
         pokemon_name = pokemon['Pokemon']
-        result[pokemon_name] = pokemon
+        result[pokemon_name.lower()] = pokemon
 
     return result

@@ -16,13 +16,8 @@ def get_pokemon_stats_historical(pokemon: str):
     :return: stats if found
     """
 
-    #could not get the static data loading to my end.
-    #I don't think it's a problem to just read straight from the CSV
-    #each time, since scaling this up is outside the scope of hte class
-    # pokemon_stats_data = static_data["pokemon_stats_data"]
     pokemon_stats_data = load_pokemon_stats()
-    pokemon_stats = pokemon_stats_data[pokemon]
-
+    pokemon_stats = pokemon_stats_data[pokemon.lower()]
     print(pokemon_stats)
     response = {}
     if pokemon_stats is None:
