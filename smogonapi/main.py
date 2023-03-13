@@ -15,6 +15,7 @@ myApp.include_router(kaggle_data_endpoints.router)
 
 
 def main():
+    """Starts up a server locally when called"""
     uvicorn.run(myApp)
 
 
